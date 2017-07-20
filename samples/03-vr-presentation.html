@@ -68,7 +68,6 @@ found in the LICENSE file.
     <script src="js/third-party/gl-matrix-min.js"></script>
 
     <script src="js/third-party/wglu/wglu-program.js"></script>
-    <script src="js/third-party/wglu/wglu-stats.js"></script>
     <script src="js/third-party/wglu/wglu-texture.js"></script>
 
     <script src="js/vr-cube-sea.js"></script>
@@ -119,7 +118,6 @@ found in the LICENSE file.
 
       var enablePerformanceMonitoring = WGLUUrl.getBool(
           'enablePerformanceMonitoring', false);
-      var stats = new WGLUStats(gl, enablePerformanceMonitoring);
 
       var presentingMessage = document.getElementById("presenting-message");
 
@@ -151,7 +149,6 @@ found in the LICENSE file.
       webglCanvas.addEventListener("click", onClick, false);
 
       function onAnimationFrame (t) {
-        stats.begin();
 
         gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
@@ -163,9 +160,6 @@ found in the LICENSE file.
           mat4.identity(viewMat);
           //cubeSea.render(projectionMat, viewMat, stats, t);
 
-          stats.renderOrtho();
-
-        stats.end();
       }
       window.requestAnimationFrame(onAnimationFrame);
       })();
