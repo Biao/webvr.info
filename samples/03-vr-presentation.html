@@ -49,29 +49,6 @@ found in the LICENSE file.
     disabling the WebVR polyfill, and is not necessary for most WebVR apps.
     If you want to use the polyfill in your app, just include the js file and
     everything will work the way you want it to by default. -->
-    <script>
-      var WebVRConfig = {
-        // Prevents the polyfill from initializing automatically.
-        DEFER_INITIALIZATION: true,
-        // Ensures the polyfill is always active when initialized, even if the
-        // native API is available. This is probably NOT what most pages want.
-        ALWAYS_APPEND_POLYFILL_DISPLAY: true,
-        // Polyfill optimizations
-        DIRTY_SUBMIT_FRAME_BINDINGS: true,
-        BUFFER_SCALE: 0.75,
-      };
-    </script>
-    <script src="js/third-party/wglu/wglu-url.js"></script>
-
-    <!-- End sample polyfill enabling logic -->
-
-    <script src="js/third-party/gl-matrix-min.js"></script>
-
-    <script src="js/third-party/wglu/wglu-program.js"></script>
-    <script src="js/third-party/wglu/wglu-texture.js"></script>
-
-    <script src="js/vr-cube-sea.js"></script>
-    <script src="js/vr-samples-util.js"></script>
   </head>
   <body>
     <canvas id="webgl-canvas"></canvas>
@@ -83,8 +60,6 @@ found in the LICENSE file.
 
       var vrDisplay = null;
       var frameData = null;
-      var projectionMat = mat4.create();
-      var viewMat = mat4.create();
 
       var vrPresentButton = null;
 
@@ -152,7 +127,7 @@ found in the LICENSE file.
 
         gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
-          window.requestAnimationFrame(onAnimationFrame);
+          //window.requestAnimationFrame(onAnimationFrame);
 
           // No VRDisplay found.
           gl.viewport(0, 0, webglCanvas.width, webglCanvas.height);
